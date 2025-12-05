@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação Ação Social 30/11</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #34d399 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #34d399;
+        }
+
+        .header h1 {
+            color: #10b981;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #6b7280;
+            font-size: 1em;
+        }
+
+        .anonimo-badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 15px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            color: #10b981;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #d1fae5;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            color: #374151;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .required {
+            color: #ef4444;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: #f9fafb;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .radio-option:hover {
+            background: #d1fae5;
+        }
+
+        input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #10b981;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .submit-btn:disabled {
+            background: #9ca3af;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .message {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .message.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 2px solid #10b981;
+            display: block;
+        }
+
+        .message.loading {
+            background: #dbeafe;
+            color: #1e40af;
+            border: 2px solid #3b82f6;
+            display: block;
+        }
+
+        .nota-info {
+            font-size: 0.85em;
+            color: #6b7280;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+        }
+
+        iframe {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Avaliação Ação Social</h1>
+            <p>30 de Novembro de 2025</p>
+            <span class="anonimo-badge">🔒 100% Anônima</span>
+        </div>
+
+        <div id="mensagem" class="message"></div>
+
+        <form id="formulario" method="POST" action="https://script.google.com/macros/s/AKfycbwq-L3yMjwSSZm76BsK-IDkY7yvADFa6r7o71MvaqHotYd5plFOH3I_dAWVMDmjmUI0lg/exec" target="hidden_iframe">
+            
+            <!-- CONTEXTO -->
+            <div class="section">
+                <h2 class="section-title">📋 Contexto</h2>
+                
+                <div class="form-group">
+                    <label>Em qual setor você atuou? <span class="required">*</span></label>
+                    <select name="setor" required>
+                        <option value="">Selecione...</option>
+                        <option>Distribuição de senhas</option>
+                        <option>Organização da fila</option>
+                        <option>Recepção e Cadastro</option>
+                        <option>Triagem</option>
+                        <option>Posso ajudar/Apoio</option>
+                        <option>Cozinha</option>
+                        <option>Ordem e limpeza</option>
+                        <option>Infraestrutura</option>
+                        <option>Almoxarifado</option>
+                        <option>Marketing</option>
+                        <option>Divulgação prévia</option>
+                        <option>Serviços ofertados</option>
+                        <option>Coordenações/Líderes</option>
+                        <option>Culto e cestas</option>
+                        <option>Logística</option>
+                        <option>Coordenação Geral</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Primeira vez como voluntário? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="primeiraVez" value="Sim" required>
+                            <span>Sim</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="primeiraVez" value="Não">
+                            <span>Não</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AVALIAÇÃO GERAL -->
+            <div class="section">
+                <h2 class="section-title">⭐ Avaliação Geral (0 a 10)</h2>
+                <p class="nota-info">0 = Péssimo | 10 = Excelente</p>
+
+                <div class="form-group">
+                    <label>Organização geral <span class="required">*</span></label>
+                    <input type="number" name="orgGeral" min="0" max="10" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Divulgação da ação <span class="required">*</span></label>
+                    <input type="number" name="divulgacao" min="0" max="10" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Resultados alcançados <span class="required">*</span></label>
+                    <input type="number" name="resultados" min="0" max="10" required>
+                </div>
+            </div>
+
+            <!-- PREPARAÇÃO -->
+            <div class="section">
+                <h2 class="section-title">🛠️ Preparação</h2>
+
+                <div class="form-group">
+                    <label>Sentiu-se preparado? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="preparado" value="Sim" required>
+                            <span>Sim</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="preparado" value="Parcialmente">
+                            <span>Parcialmente</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="preparado" value="Não">
+                            <span>Não</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Treinamento adequado? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="treinamento" value="Sim" required>
+                            <span>Sim</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="treinamento" value="Parcialmente">
+                            <span>Parcialmente</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="treinamento" value="Não">
+                            <span>Não</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Materiais suficientes? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="materiais" value="Sim" required>
+                            <span>Sim</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="materiais" value="Parcialmente">
+                            <span>Parcialmente</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="materiais" value="Não">
+                            <span>Não</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXPERIÊNCIA -->
+            <div class="section">
+                <h2 class="section-title">💚 Sua Experiência</h2>
+
+                <div class="form-group">
+                    <label>Como foi? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="experiencia" value="Excelente" required>
+                            <span>😄 Excelente</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="experiencia" value="Boa">
+                            <span>🙂 Boa</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="experiencia" value="Regular">
+                            <span>😐 Regular</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="experiencia" value="Ruim">
+                            <span>🙁 Ruim</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Voltaria a participar? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="voltaria" value="Sim" required>
+                            <span>✅ Sim</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="voltaria" value="Talvez">
+                            <span>🤔 Talvez</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="voltaria" value="Não">
+                            <span>❌ Não</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Indicaria para outros? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" name="indicaria" value="Sim" required>
+                            <span>👍 Sim</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="indicaria" value="Talvez">
+                            <span>🤷 Talvez</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="indicaria" value="Não">
+                            <span>👎 Não</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FEEDBACKS -->
+            <div class="section">
+                <h2 class="section-title">💬 Feedbacks (Opcional)</h2>
+
+                <div class="form-group">
+                    <label>✅ O que funcionou bem?</label>
+                    <textarea name="funcionouBem" placeholder="Destaque os pontos fortes..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>⚠️ O que precisa melhorar?</label>
+                    <textarea name="melhorar" placeholder="Seja sincero, queremos melhorar!"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>💡 Sugestões</label>
+                    <textarea name="sugestoes" placeholder="O que podemos fazer diferente?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>👏 Elogios</label>
+                    <textarea name="elogios" placeholder="Reconheça o trabalho de alguém..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>💬 Observações</label>
+                    <textarea name="observacoes" placeholder="Algo mais que gostaria de compartilhar?"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Enviar Avaliação 📊</button>
+        </form>
+    </div>
+
+    <iframe name="hidden_iframe" id="hidden_iframe"></iframe>
+
+    <script>
+        document.getElementById('formulario').addEventListener('submit', function() {
+            const mensagem = document.getElementById('mensagem');
+            const botao = document.querySelector('.submit-btn');
+            
+            mensagem.className = 'message loading';
+            mensagem.textContent = '⏳ Enviando...';
+            botao.disabled = true;
+
+            setTimeout(function() {
+                mensagem.className = 'message success';
+                mensagem.textContent = '✅ Avaliação enviada! Obrigado! 💚';
+                document.getElementById('formulario').reset();
+                botao.disabled = false;
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
